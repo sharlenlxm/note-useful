@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        img {
+            vertical-align: top;
+        }
+        .top {
+            width: 1500px;
+            margin: 0 auto;
+        }
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+        }
+        #Q-nav {
+            width: 1500px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            margin-left: -750px!important;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //需求：页面滑动被卷去的顶部超过第一个盒子的高，第二个盒子添加固定定位。否则取消;
+                //思路：给window绑定滚动事件，判断第一个盒子的高是否被顶部距离超过;
+            var first = document.getElementById("top");
+            var second = document.getElementById("Q-nav");
+            var third = document.getElementById("main");
+
+            window.onscroll = function () {
+                //判断：被卷去的顶部的高度和第一个盒子的高谁高！
+                if(scroll().top > first.scrollHeight){
+                    //给第二个盒子加固定定位
+                    second.className = "fixed";
+                    //给第一个盒子加下maring；  因为padding会算到scrollHeight里面
+                    //给第三个盒子加上padding或者上maring；
+                        //第二个盒子的高
+                    third.style.marginTop = second.scrollHeight+"px";
+                }else{
+                    //给第二个盒子去除固定定位
+                    second.className = "";
+                    //清零marginTop
+                    third.style.marginTop = 0;
+                }
+            }
+        }
+
+
+
+        //封装一个方法，获取页面被卷去的部分;
+        function scroll(){
+            return {
+                "top": window.pageYOffset || document.documentElement.scrollTop,
+                "left": window.pageXOffset || document.documentElement.scrollLeft
+            };
+        }
+    </script>
+</head>
+<body>
+
+    <!--第一张图片-->
+    <div class="top" id="top">
+        <img src="images/top.png" alt=""/>
+    </div>
+    <!--第二张图片-->
+    <div id="Q-nav">
+        <img src="images/nav.png" alt=""/>
+    </div>
+    <!--第三张图片-->
+    <div class="main" id="main">
+        <img src="images/main.png" alt=""/>
+    </div>
+
+
+
+</body>
+</html>
+

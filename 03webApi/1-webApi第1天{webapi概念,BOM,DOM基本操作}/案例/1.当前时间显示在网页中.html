@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id = "time"></div>
+<script>
+
+//定义定时器
+setInterval(function(){
+	//创建时间对象
+	var date = new Date();
+    //获取当前年份
+    var year = date.getFullYear();
+    //获取当前月份
+    var month = date.getMonth() + 1;
+    //获取当前日期
+    var strDate = date.getDate();
+    //如果月份比十月小前面加0
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    //如果日期比10小前面加0
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+
+    //获取当前小时
+    var hour = date.getHours();
+    //获取当前分钟
+    var minute = date.getMinutes();
+    //获取当前秒钟
+    var second = date.getSeconds();
+
+    //定义日期分隔符
+    var seperator1 = "-";
+    //定义时间分隔符
+    var seperator2 = ":";
+    //将当前时间拼接为 YYYY-MM-DD HH:MM:SS格式
+    var currentdate = year + seperator1 + month + seperator1 + strDate
+            + " " + hour + seperator2 + minute
+            + seperator2 + second;
+
+    //将时间放到body中
+    document.body.innerText = currentdate;
+},1000);
+</script>
+</body>
+</html>

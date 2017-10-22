@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #client{
+            width:800px;
+            margin:20px auto;
+            border:1px solid #ccc;
+        }
+
+        .win{
+            width:700px;
+            height:400px;
+            margin:10px 50px;
+            border:1px solid #ccc;
+        }
+
+        .opt{
+            width:700px;
+            height:40px;
+            margin:10px 50px;
+            border:1px solid #ccc;
+        }
+
+        .opt .myInput,.opt .btn{
+            margin:0;
+            padding:0;
+            height:38px;
+            outline: none;
+            font-size: 20px;
+        }
+
+        .opt .myInput{
+            border:none;
+            
+        }
+
+        .opt .btn{
+            float:right;
+            width:50px;
+            height:100%;
+            border:1px solid #ccc;
+        }
+
+        #list,#list li{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+
+        #list li{
+            margin:10px 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="client">
+        <div class="win">
+            <ul id="list"></ul>
+        </div>
+        <div class="opt">
+            <input type="text" class="myInput">
+            <input type="button" class="btn" value="发贴">
+        </div>
+    </div>
+    <script>
+
+        var list = document.getElementById('list');
+        //获取按钮元素
+        var btn = document.getElementsByClassName('btn')[0];
+        //给btn按钮注册监听事件
+        btn.addEventListener('click',sendTie,false);
+        //定义发帖函数
+        function sendTie(){
+            //避免重复发送，进入方法后先移除事件
+            btn.removeEventListener('click',sendTie,false);
+            //获取文本信息
+            var txt = document.getElementsByClassName('myInput')[0].value;
+            //创建li元素
+            var li  = document.createElement('li');
+            li.innerText = txt;
+            //把li添加到ul列表中
+            list.appendChild(li);
+            //发送成功后，添加事件
+            btn.addEventListener('click',sendTie,false);
+        }
+
+    </script>
+</body>
+</html>

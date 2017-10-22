@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script>
+
+
+
+
+
+    //递归案例:求一个数字各个位数上的数字的和:  123   --->6 ---1+2+3
+    //523
+    function getEverySum(x) {
+      if(x<10){
+        return x;
+      }
+      //获取的是这个数字的个位数
+      return x%10+getEverySum(parseInt(x/10));
+    }
+   console.log(getEverySum(1364));//5
+
+
+
+    //递归案例:求斐波那契数列
+
+    function getFib(x) {
+      if(x==1||x==2){
+        return 1
+      }
+      return getFib(x-1)+getFib(x-2);
+    }
+    console.log(getFib(12));
+
+
+
+
+  </script>
+</head>
+<body>
+
+
+</body>
+</html>

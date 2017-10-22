@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				overflow: auto;
+			}
+		</style>
+		<script src="jquery-1.12.4.js"></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				
+				$("#box").scroll(function(){
+					
+					console.log($(this).scrollTop());//
+					
+					
+					
+				})
+				// 单击整个文档 让box的垂直方向滚动过的距离 设置到100
+				$(document).click(function(){
+					$("#box").scrollTop(300);
+				})
+
+				console.log($(window).height());
+		    	console.log($(window).width());
+		    	console.log($(document).height());
+		    	console.log($(document).width());
+		    	console.log($(document).scrollTop());
+		    	console.log($(document).scrollLeft())
+				
+			})
+		</script>
+	</head>
+	<body style="height: 2000px;">
+		<div id="box">
+			<p>ppppp</p>
+			<p>ppppp</p><p>ppppp</p><p>ppppp</p>
+			<p>ppppp</p><p>ppppp</p><p>ppppp</p><p>ppppp</p>
+			<p>ppppp</p><p>ppppp</p><p>ppppp</p><p>ppppp</p><p>ppppp</p>
+			<p>ppppp</p><p>ppppp</p><p>ppppp</p><p>ppppp</p>
+			<p>ppppp</p><p>ppppp</p><p>ppppp</p>
+		</div>
+	</body>
+</html>

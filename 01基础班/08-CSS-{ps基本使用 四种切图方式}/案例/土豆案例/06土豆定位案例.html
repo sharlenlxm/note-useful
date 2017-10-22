@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,h4,p {
+			margin: 0;
+			padding: 0;
+		}
+		.pic {
+			width: 432px;
+			height: 248px;
+			position: relative;
+		}
+		.txt {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			/*调整定位元素的层叠顺序*/
+			z-index: 1;
+			font-family: microsoft yahei;
+			color: #fff;
+		}
+		.txt h4 {
+			font-size: 22px;
+			font-weight: 400;
+		}
+		.txt p {
+			font-size: 12px;
+		}
+		[src="co32.png"] {
+			position: absolute;
+			bottom: 0;
+		}
+		.pic a {
+			display: inline-block;
+			width: 432px;
+			height: 248px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 2;
+		}
+	</style>
+</head>
+<body>
+	<div class="pic">
+		<img src="lkw.jpg" alt="">
+		<div class="txt">
+			<h4><飞刀又见飞刀>免费更新第至9集</h4>
+			<p>刘恺威坠崖巧遇神秘人，骨骼惊奇习得盖世武功！</p>
+		</div>
+		<img src="co32.png" alt="">
+		<a href="#"></a>
+	</div>
+</body>
+</html>

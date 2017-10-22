@@ -1,0 +1,4 @@
+offsetParent和parentNode的区别
+动画原理
+用js让某个元素动运动
+实现匀速动画

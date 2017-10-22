@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img {
+			width: 150px;
+			animation: go 1s infinite;
+		}
+		/*定义一个动画集*/
+		@keyframes go {
+			/*百分比是根据时间分配的*/
+			0% {
+
+			}
+			45% {
+				transform: translate(1000px);
+			}
+			50% {
+				transform: translate(1000px) rotateY(-180deg);
+			}
+			95% {
+				transform: translate(0) rotateY(-180deg);
+			}
+			100% {
+				transform: translate(0) rotateY(0deg);
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<img src="images/car.jpg" alt="">
+</body>
+</html>

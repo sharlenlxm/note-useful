@@ -1,0 +1,11 @@
+1.理解什么是WebAPI
+2.BOM和DOM的概念
+3.常用的BOM对象
+4.浏览器的顶级对象window
+5.onload事件
+6.定时器
+7.用href实现页面跳转
+8.如何获取url
+9.根据id和标签名获取元素
+10.获取或者设置DOM元素属性
+11.innerText和innerHTML

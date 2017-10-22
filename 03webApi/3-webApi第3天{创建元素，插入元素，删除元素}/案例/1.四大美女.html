@@ -1,0 +1,65 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        li {
+            font: 22px/35px "simsun";
+            border: 1px dotted #ccc;
+            padding-left: 10px;
+            margin: 10px;
+            cursor: wait;
+        }
+    </style>
+</head>
+<body>
+
+    <button>生成四大美女...嘿嘿嘿...</button>
+
+    <ul>
+
+    </ul>
+
+    <script>
+
+        //点击按钮，生成四个li；然后鼠标进入高亮显示
+
+        //点击按钮，生成四个li；
+        var btn = document.getElementsByTagName("button")[0];
+        var ul = document.getElementsByTagName("ul")[0];
+        btn.onclick = function () {
+            //for循环创建;
+            var arr = ["西施浣纱","贵妃醉酒","昭君出塞","貂蝉拜月"];
+            for(var i=0;i<arr.length;i++){
+                var newLi = document.createElement("li");
+                newLi.innerHTML = arr[i];
+                //添加到ul；
+                ul.appendChild(newLi);
+            }
+
+            //不要在页面加载的时候绑定事件，那样新创建的元素没有老事件;
+                //创建元素完毕之后在绑定事件;
+            //鼠标进入，高亮显示
+            var liArr = ul.children;//要比getElementsByTagName();快少简洁;
+            for(var i=0;i<liArr.length;i++){
+                liArr[i].onmouseover = function () {
+                    //排他思想
+                    for(var j=0;j<liArr.length;j++){
+                        liArr[j].style.background = "";
+                    }
+                    this.style.background = "lightgreen";
+                }
+            }
+
+        }
+
+
+
+
+    </script>
+
+
+</body>
+</html>

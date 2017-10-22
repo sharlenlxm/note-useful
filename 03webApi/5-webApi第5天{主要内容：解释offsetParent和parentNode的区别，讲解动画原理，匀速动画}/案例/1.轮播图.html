@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        img {
+            cursor: move;
+            vertical-align: middle;
+        }
+        .outer {
+            width: 490px;
+            height: 170px;
+            padding: 5px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+        .inner {
+            width: 490px;
+            height: 170px;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 505%;
+        }
+        ul li {
+            float: left;
+        }
+        ol {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        ol li {
+            float: left;
+            width: 18px;
+            height: 18px;
+            margin: 0 5px 0 6px;
+            text-align: center;
+            line-height: 18px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        .current {
+            background-color: orange;
+            color: #fff;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            //需求：鼠标放到哪个ol中的li上，点亮对应的ol中的li，移动ul的位置;
+                //思路：for绑定事件，1.点亮盒子;   2.移动ul；
+            //移动ul的多少：
+                //1.鼠标放到ol中的第一个li上，ul向左移动0;(索引值)
+                //2.鼠标放到ol中的第二个li上，ul向左移动1张图片的宽;
+                //3.鼠标放到ol中的第三个li上，ul向左移动2张图片的宽;
+                //.............................................
+                //n.鼠标放到ol中的第n 个li上，ul向左移动n-1张图片的宽;
+
+
+
+
+            //获取元素
+            var outer = document.getElementById("outer");
+            var inner = outer.children[0];
+            var ul = inner.firstElementChild || inner.firstChild;
+            var ol = ul.nextElementSibling || ul.nextSibling;
+            var olLiArr = ol.children;
+            var imgWidth = inner.offsetWidth;
+            //for循环绑定事件
+            for(var i=0;i<olLiArr.length;i++){
+                //自定义属性绑定索引值
+                olLiArr[i].index = i;
+                olLiArr[i].onmouseover = function () {
+                    //1.点亮盒子;(排他思想)
+                    for(var j=0;j<olLiArr.length;j++){
+                        olLiArr[j].className = "";
+                    }
+                    this.className = "current";
+                    //2.移动ul;（向左移动this的索引值个图片的宽）
+                    var sss = -this.index*imgWidth;
+                    animate(ul,sss);
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //匀速动画封装
+        function animate(ele,target){
+            //要用定时器先清定时器;
+            clearInterval(ele.timer);
+            ele.timer = setInterval(function () {
+                //1.获取步长
+                var step = target>ele.offsetLeft?10:-10;
+                //2.赋值
+                ele.style.left = ele.offsetLeft+step+"px";
+                //3.停止定时器(如果走过了，或者向后退了一步，也清除，赋值目标位置)
+                console.log(1);
+                //目标位置和当前位置的差值，不足一个步长的时候;
+                if(Math.abs(target-ele.offsetLeft) <= Math.abs(step)){
+                    //设置目标位置，清除定时器
+                    ele.style.left = target+"px";
+                    clearInterval(ele.timer);
+                }
+            },11);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="outer" id="outer">
+        <div class="inner">
+            <ul>
+                <li><img src="images/01.jpg" alt=""/></li>
+                <li><img src="images/02.jpg" alt=""/></li>
+                <li><img src="images/03.jpg" alt=""/></li>
+                <li><img src="images/04.jpg" alt=""/></li>
+                <li><img src="images/05.jpg" alt=""/></li>
+            </ul>
+            <ol>
+                <li class="current">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ol>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body {
+            height: 5000px;
+        }
+
+        .box {
+            width: 500px;
+            overflow: hidden;
+            margin: 200px auto;
+        }
+        input {
+            float: left;
+            outline-style: none;
+            padding: 0;
+            margin: 0;
+            width: 385px;
+            height: 34px;
+            padding-left: 10px;
+            font: 17px "simsun";
+        }
+        button {
+            float: left;
+            width: 100px;
+            height: 38px;
+        }
+        ul {
+            float: left;
+            width: 377px;
+            padding: 10px;
+            border: 1px solid red;
+            border-top: 0;
+        }
+        ul li {
+            font: 24px/34px "simsun";
+            border-bottom: 1px dashed #ccc;
+            cursor: pointer;
+        }
+        ul li:hover {
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //需求：每次在input中输入内容，都去数据库(数组模拟)中查找，
+            //      以内容为开头的生成li添加到ul里，ul添加到box里;
+            //技术点：不用oninput事件，兼容行不好;
+            //键盘弹起事件: onkeyup
+            //获取相关元素和数组并绑定事件;
+            var inp = document.getElementById("inp");
+            var box = document.getElementsByTagName("div")[0];
+            var arr = ["a","aa","aaa","aaaa","aaaaa","aaaab","aaaabc","bb","bbb","bbc"];
+            inp.onkeyup = function () {
+                //思路: 1.查找数组中input值为开头的内容，添加到一个数组；
+                //      2.根据数组生成li；
+                //      3.添加到ul中，ul添加到box；
+
+                //1.查找数组中input值为开头的内容，添加到一个数组；
+                var newArr = [];
+                for(var i=0;i<arr.length;i++){
+                    //以input内容为开头！
+                    //让一个字符串，在另一个字符串中的索引值为0;
+                    //文本框里面的内容在数组中的元素中的索引值为0;
+                    if(arr[i].indexOf(this.value) == 0){
+                        newArr.push(arr[i]);
+                    }
+                }
+
+                //2.如果有ul直接获取，如果没有则创建ul，根据数组生成li；
+                var uls = document.getElementsByTagName("ul");
+                var ul = null;
+                if(ul.length>0){
+                    ul = uls[0];
+                }else{
+                    ul = document.createElement('ul');
+                }
+
+
+                for(var i=0;i<newArr.length;i++){
+                    var newLi = document.createElement("li");
+                    newLi.innerHTML = newArr[i];
+                    ul.appendChild(newLi);
+                }
+
+                //3.ul添加到box；
+                box.appendChild(ul);
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <input type="text" id="inp"/>
+        <button>搜索</button>
+    </div>
+</body>
+</html>

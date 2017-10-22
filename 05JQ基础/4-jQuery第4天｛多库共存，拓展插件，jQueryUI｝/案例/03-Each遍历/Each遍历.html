@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            background: hotpink;
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- 准备10个骚粉的盒子  每一个盒子 透明度递增  0.1-1  -->
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ul>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        /*var i = 100;
+        var $lis = $('li');
+        for (var i = 0; i < $lis.length; i++) {
+            var index = i;
+            var dom = $lis[i];
+            $($lis[i]).css('opacity',0.1*(i+1));
+        }
+        console.log(i); // a 100  b 0  c 9  d 10*/
+        /*缺点：污染变量,写起来费劲*/
+        /*jquery  each()*/
+        /*索引*/
+        //console.log(i);
+        /*索引对应的dom对象*/
+        //console.log(item); ==== $(this);
+        $('li').each(function (i, item) {
+            $(this).css('opacity',0.1*(i+1));
+            console.log(i);
+            console.log(item)
+        });
+    })
+</script>
+</body>
+</html>

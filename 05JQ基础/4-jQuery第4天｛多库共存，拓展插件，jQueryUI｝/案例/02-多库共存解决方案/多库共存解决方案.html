@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="jquery/jquery-1.12.4.js"></script>
+<script src="js/itcast.js"></script>
+<script>
+    /*
+    * 1.当存在两个库都使用$为全局变量的时候
+    * 2.按页面加载的顺序  最后加载的库生效  覆盖之前的
+    * 3.怎么样多个库共存？？？
+    * 4.jquery说没关系  我有备胎 jQuery 是个全局对象
+    * 5.jQuery也被抢走了  重新在生成一个
+    * */
+    $.sayHi();
+
+    /*创建一个新的jquery对象  释放控制权*/
+    var c = jQuery.noConflict();
+
+    c(function () {
+        console.log('ok');
+    });
+
+
+</script>
+</body>
+</html>

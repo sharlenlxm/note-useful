@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>对自己狠点</title>
+  <style>
+    input {
+      margin-left: 30px;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <input type="button" value="赞(1)">
+  <input type="button" value="赞(1)">
+  <input type="button" value="赞(1)">
+  <input type="button" value="赞(1)">
+</ul>
+<script>
+
+  //获取所有的按钮
+  //根据标签名字获取元素
+  function my$(tagName) {
+    return document.getElementsByTagName(tagName);
+  }
+  //闭包缓存数据
+  function getValue() {
+    var value=2;
+    return function () {
+      //每一次点击的时候,都应该改变当前点击按钮的value值
+      this.value="赞("+(value++)+")";
+    }
+  }
+  //获取所有的按钮
+  var btnObjs=my$("input");
+  //循环遍历每个按钮,注册点击事件
+  for(var i=0;i<btnObjs.length;i++){
+    //注册事件
+    btnObjs[i].onclick=getValue();
+  }
+
+
+
+
+
+</script>
+</body>
+</html>

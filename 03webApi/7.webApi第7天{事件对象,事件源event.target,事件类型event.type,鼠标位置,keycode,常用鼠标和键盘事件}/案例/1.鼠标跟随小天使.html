@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            width: 5000px;
+            height: 5000px;
+        }
+        img {
+            position: absolute;
+            /*border: 1px solid #ccc;*/
+        }
+    </style>
+</head>
+<body>
+    <img src="images/img2.png" alt=""/>
+    <script>
+
+        //需求：鼠标移动到哪里，小天使就跟随到哪里;  时时移动;
+                //鼠标移动事件：onmousemove；
+
+        //获取图片
+        var img = document.getElementsByTagName("img")[0]
+        document.onmousemove = function (event) {
+            //获取鼠标在整个页面的坐标，给小天使赋值;
+            event = event || window.event;
+            var pagex = event.pageX || event.clientX + scroll().left;
+            var pagey = event.pageY || event.clientY + scroll().top;
+            //给图片赋值(为了让鼠标在图片最中间减去图片自身的一半)
+            img.style.top = pagey - img.offsetHeight/2 + "px";
+            img.style.left = pagex  - img.offsetWidth/2 + "px";
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

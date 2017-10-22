@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            display: block;
+            margin: 130px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <button>关灯</button>
+    <button>开灯</button>
+    <img src="images/1.jpg" width="400" alt=""/>
+
+    <script>
+
+        //设置body的背景色
+
+        //获取元素
+        var btnArr = document.getElementsByTagName("button");
+        var body = document.getElementsByTagName("body")[0];
+
+        //绑定事件
+        btnArr[0].onclick = function () {
+            //body背景变黑色
+            body.style.backgroundColor = "rgba(0,0,0,0.8)";
+//            body.bgColor = "#000";
+        }
+        btnArr[1].onclick = function () {
+            //body背景变黑色
+            body.style.backgroundColor = "";
+//            body.bgColor = ""
+        }
+
+    </script>
+
+</body>
+</html>

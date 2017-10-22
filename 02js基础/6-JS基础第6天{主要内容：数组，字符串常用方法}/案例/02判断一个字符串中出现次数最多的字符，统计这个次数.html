@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var s = 'abcoefoxyozzopp';
+        var o = {};
+
+        for (var i = 0; i < s.length; i++) {
+          var item = s.charAt(i);
+          if (o[item]) {
+            o[item] ++;
+          }else{
+            o[item] = 1;
+          }
+        }
+
+        var max = 0;
+        var char ;
+        for(var key in o) {
+          if (max < o[key]) {
+            max = o[key];
+            char = key;
+          }
+        }
+
+        console.log(max);
+        console.log(char);
+
+    </script>
+</body>
+</html>

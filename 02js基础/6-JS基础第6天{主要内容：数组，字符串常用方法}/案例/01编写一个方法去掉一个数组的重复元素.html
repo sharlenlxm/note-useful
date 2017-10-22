@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var array =  ['c', 'a', 'z', 'a', 'x', 'a'];
+        function clear() {
+          var o = {};
+          for (var i = 0; i < array.length; i++) {
+            var item = array[i];
+            if (o[item]) {
+              o[item]++;
+            }else{
+              o[item] = 1;
+            }
+          }
+          console.log(o)
+          var tmpArray = [];
+          for(var key in o) {
+            if (o[key] == 1) {
+              tmpArray.push(key);
+            }
+          }
+          return tmpArray;
+        }
+
+        console.log(clear(array));
+
+    </script>
+</body>
+</html>

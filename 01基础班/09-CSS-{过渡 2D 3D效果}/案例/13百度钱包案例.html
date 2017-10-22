@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: #bbb;
+		}
+		.box {
+			width: 300px;
+			height: 301px;
+			margin: 100px auto;
+			position: relative;
+			/*设置给父元素，子元素会处于三维空间内*/
+			/*transform-style: preserve-3d;*/
+			transition: all 1s;
+			transform: rotateY(0deg);
+
+		}
+		.box:before,.box:after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.box:before {
+			background: url(images/baidu.png);
+			z-index: 1;
+		}
+		.box:after {
+			background: url(images/baidu.png) right;
+			transform: rotateY(180deg);
+		}
+		.box:hover {
+			transform: rotateY(-180deg);
+		}
+	</style>
+</head>	
+<body>
+	<div class="box"></div>
+</body>
+</html>

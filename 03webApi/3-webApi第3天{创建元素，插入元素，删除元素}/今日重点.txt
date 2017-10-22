@@ -1,0 +1,4 @@
+用document.write()创建元素
+用innerHTML创建元素
+用createElement创建元素
+在页面中插入元素和删除元素

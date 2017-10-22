@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var arr = [1,2,4,3,7,6,5];
+       for(var i = 0;i<arr.length-1;i++){
+           var isOff = true;
+           for(var j = 0;j<arr.length-1-i;j++){
+               if(arr[j]>arr[j+1]){
+                   isOff = false;
+                   var tmp = arr[j];
+                   arr[j] = arr[j+1];
+                   arr[j+1] = tmp;
+
+               }
+           }
+           if(isOff){
+               break
+           }
+       }
+        console.log(arr);
+        
+
+    </script>
+</body>
+</html>

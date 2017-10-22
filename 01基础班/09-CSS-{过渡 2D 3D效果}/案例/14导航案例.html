@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,ul {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			list-style: none;
+			float: left;
+			position: relative;
+			width: 80px;
+			height: 40px;
+			text-align: center;
+			transition: all 1s;
+			transform-style: preserve-3d;
+			transform: rotateX(0deg);
+		}
+		ul {
+			margin-left: 100px;
+			margin-top: 200px;
+		}
+		li:before,li:after {
+			content:"前端开发";	
+			display: block;
+			width: 80px;
+			height: 40px;
+			line-height: 40px;
+			position: absolute;
+		}
+		li:before {
+			background: yellow;
+			z-index: 1;
+			transform: translateZ(20px);
+		}
+		li:after {
+			background: green;
+			transform: rotateX(90deg) translateZ(20px);
+		}
+		li:hover {
+			transform: rotateX(-90deg);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

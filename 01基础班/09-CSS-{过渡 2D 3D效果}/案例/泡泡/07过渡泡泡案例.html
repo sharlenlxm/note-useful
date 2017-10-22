@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 350px;
+			height: 150px;
+			background:  url(paopao.png) left top,
+						 url(paopao.png) left bottom;
+			background-color:rgb(0,51,102);
+			background-size: 350px;
+			margin: 30px auto;
+			border-radius: 10px;
+			transition: all 1s;
+		}
+		.box:hover {
+			background: url(paopao.png) left bottom,
+						url(paopao.png) left top;
+			background-color:rgb(0,51,102);
+			background-size: 350px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

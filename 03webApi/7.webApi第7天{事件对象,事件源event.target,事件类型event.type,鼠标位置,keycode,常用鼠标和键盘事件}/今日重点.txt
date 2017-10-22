@@ -1,0 +1,7 @@
+用事件对象获取事件源event.target || event.srcElement
+用事件对象获取事件类型/事件名称 event.type
+用事件对象获取鼠标的位置
+用事件对象取消默认行为的执行event.preventDefault()
+用keycode获取判断用户按下哪个键
+常用的3-5个鼠标事件 onmouseover,onmouseout,onmousemove
+常用的3-5个键盘事件 onkeydown,onkeyup

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,ul {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			list-style: none;
+		}
+		.banner {
+			width: 1259px;
+			height: 472px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.banner ul {
+			width: 960px;
+			height: 64px;
+			background: rgb(72,72,72);
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -480px;
+
+		}
+		.banner li {
+			float: left;
+		}
+		.banner a {
+			display: inline-block;
+			width: 160px;
+			height: 64px;
+			line-height: 64px;
+			text-align: center;
+			color: #fff;
+			text-decoration: none;
+		}
+		.banner a:hover {
+			background: #fff;
+			color: #666;
+			text-decoration: underline;
+		}
+		 ul li:first-child a:hover {
+		 	background: rgb(72,72,72);
+		 	color: #fff;
+		 }
+		 .search {
+		 	position: absolute;
+		 	left: 150px;
+		 	bottom: 61px;
+		 }
+		 .sj {
+		 	position: absolute;
+		 	left: 200px;
+		 	bottom: 52px;
+		 	z-index: 1;
+		 }
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<img src="sf.png" alt="">
+		<div class="search"><img src="3.png" alt=""></div>
+		<div class="sj"><img src="4.png" alt=""></div>
+		<ul>
+			<li><a href="#">运单查询</a></li>
+			<li><a href="#">运费查询</a></li>
+			<li><a href="#">时效查询</a></li>
+			<li><a href="#">服务网点查询</a></li>
+			<li><a href="#">收送范围查询</a></li>
+			<li><a href="#">客户专区</a></li>
+		</ul>
+	</div>
+</body>
+</html>

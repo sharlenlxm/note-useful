@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var arr = [1,2,6,4,5,3];
+        var max = arr[0];//假设最大值
+        var maxindex = 0;//假设最大值所处的位置
+         for(var i = 0;i<arr.length;i++){
+            if(max<arr[i]){
+                max = arr[i];
+                maxindex = i;
+            }
+        }
+        console.log(max);
+        console.log(maxindex)
+
+
+    </script>
+</body>
+</html>

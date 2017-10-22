@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>无标题文档</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{background: #E5E5E5;}
+		.ad{width: 320px;height: 403px; position:fixed;right:0;bottom:0;}
+		.ad .btn{width: 25px;height: 25px; position:absolute;right:0;top:0;
+			background-color: pink;}
+	</style>
+	<script src="js/jquery-1.12.2.min.js"></script>
+	<script>
+		//	需求：
+		// 		当点击关闭按钮时：控制整个大盒子，先下去，再往右走，动画结束后还会弹窗
+		$(function () {
+			$('.btn').click(function () {
+
+				$('.ad').animate({ bottom: -165 })
+						.animate({ right : -320 }, function () {
+							alert("请继续保持开机时间.");
+						});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div class="ad">
+    	<a href="javascript:;" class="btn"></a>
+    	<div class="ad-hd"><img src="360/up.png" width="320" height="238" alt=""/></div>
+    	<div class="ad-bd"><img src="360/down.png" width="320" height="165" alt=""/></div>
+    </div>
+</body>
+</html>
